@@ -1,0 +1,860 @@
+/* ================= ROOT VARIABLEN ================= */
+:root {
+  --beige: #f5f0ea;
+  --weiss: #ffffff;
+  --dunkelgrau: #333333;
+  --hellgrau: #888888;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+.genau-text { 
+  white-space: pre-line; 
+}
+
+/* ================= BODY ================= */
+body {
+  font-family: "Cormorant Garamond", serif;
+  color: var(--dunkelgrau);
+  background-color: var(--weiss);
+  margin: 0;
+  padding-top: 0;
+}
+
+/* ================= HERO TITLE ================= */
+.hero-title {
+  text-align: center;
+  color: #fff;
+  font-family: "Cormorant Garamond", serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+
+.hero-title span {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.hero-title .hero-sub {
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+/* ================= HEADER / NAVBAR ================= */
+.custom-header {
+  width: 100%;
+  z-index: 100;
+}
+
+.navbar {
+  padding: 10px 0;
+  transition: padding 0.3s ease;
+}
+
+.logo-img {
+  height: 35px;
+  width: 250px;
+}
+
+.nav-link {
+  color: #fff !important;
+  font-weight: 600;
+  margin-left: 1rem;
+  transition: transform 0.2s ease;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  font-family: "Cormorant Garamond", serif;
+}
+
+.nav-link:hover {
+  transform: scale(1.02);
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+/* ================= HERO ================= */
+.hero {
+  position: relative;
+  overflow: hidden;
+  font-family: "Cormorant Garamond", serif;
+  height: 100vh;
+  z-index: 0;
+}
+
+.hero-logo {
+  position: absolute;
+  top: 25px;
+  left: 40px;
+  z-index: 10;
+}
+
+.hero-logo img {
+  width: 200px;
+  height: auto;
+  filter: brightness(0) invert(1);
+  transition: transform 0.3s ease;
+}
+
+.hero-logo img:hover {
+  transform: scale(1.05);
+}
+
+.hero-slideshow img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  animation: slideshow 76s infinite;
+}
+
+.hero-slideshow img:nth-child(1) { animation-delay: 0s; }
+.hero-slideshow img:nth-child(2) { animation-delay: 6s; }
+.hero-slideshow img:nth-child(3) { animation-delay: 12s; }
+.hero-slideshow img:nth-child(4) { animation-delay: 18s; }
+.hero-slideshow img:nth-child(5) { animation-delay: 24s; }
+.hero-slideshow img:nth-child(6) { animation-delay: 30s; }
+.hero-slideshow img:nth-child(7) { animation-delay: 36s; }
+.hero-slideshow img:nth-child(8) { animation-delay: 42s; }
+.hero-slideshow img:nth-child(9) { animation-delay: 48s; }
+.hero-slideshow img:nth-child(10) { animation-delay: 54s; }
+.hero-slideshow img:nth-child(11) { animation-delay: 60s; }
+.hero-slideshow img:nth-child(12) { animation-delay: 66s; }
+.hero-slideshow img:nth-child(13) { animation-delay: 72s; }
+
+@keyframes slideshow {
+  0% { opacity: 0; }
+  5% { opacity: 1; }
+  25% { opacity: 1; }
+  30% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  text-align: center;
+  z-index: 1;
+  max-width: 90%;
+}
+
+.hero-overlay h1 {
+  font-size: 2rem;
+  line-height: 1.2;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+  font-family: "Cormorant Garamond", serif;
+}
+
+.hero-overlay p {
+  font-size: 1.4rem;
+  font-weight: 550;
+  line-height: 1;
+  font-family: "Cormorant Garamond", serif;
+}
+
+/* ================= ÜBER MICH ================= */
+.about-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  text-align: center;
+  gap: 2rem;
+  margin-bottom: 6rem;
+}
+
+.about-img {
+  width: 300px;
+  height: auto;
+  border-radius: 0;
+}
+
+.gallery-img,
+.carousel-inner img,
+#insta-container img {
+  border-radius: 0;
+}
+
+.about-text img:first-of-type {
+  margin: 0.8rem;
+}
+
+.about-text {
+  max-width: 800px;
+}
+
+.about-text h2 {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  color: #746958;
+  letter-spacing: 2px;
+  font-family: "Cormorant Garamond", serif;
+}
+
+.about-text h3 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  color: #948671;
+  letter-spacing: 2px;
+  font-family: "Cormorant Garamond", serif;
+}
+
+.about-text p {
+  font-size: 1.5rem;
+  line-height: 1;
+  text-align: center;
+  color: #948671;
+  margin: 0.3rem;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+}
+
+/* ================= ÜBER MICH 2 ================= */
+.about-wrapper2 {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-top: 0rem;
+  padding: 4rem 2rem;
+  position: relative;
+  gap: 2rem;
+}
+
+.about-text2 {
+  max-width: 500px;
+  color: #948671;
+  position: absolute;
+  bottom: 20px;
+  right: 0;
+  text-align: left;
+  padding: 4rem;
+  font-family: "Cormorant Garamond", serif;
+}
+
+.about-wrapper2 img.about-img {
+  width: 400px;
+  height: auto;
+  object-fit: cover;
+  margin-bottom: -13rem;
+  margin-top: -10rem;
+  z-index: 1;
+}
+
+.about-text2 p {
+  font-weight: 600;
+  font-size: 20px;
+}
+
+/* ================= ÜBER MICH 3 ================= */
+.about-wrapper3 {
+  position: relative;
+  width: 100vw;
+  height: 110vh;
+  padding-bottom: 5vh;
+  background-image: url('assets/bilder/Wallpaper_aboutme.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.about-text3 {
+  max-width: 700px;
+  color: #ffffff;
+  position: absolute;
+  bottom: 60px;
+  left: 110px;
+  padding: 0rem;
+  font-weight: 700;
+  font-family: "Cormorant Garamond", serif;
+}
+
+.about-text3 h4 {
+  font-size: 1.6rem;
+}
+
+.about-wrapper3 img.about-img {
+  width: 400px;
+  height: auto;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.about-text3 p {
+  font-weight: 700;
+  font-size: 20px;
+  color: white;
+  text-align: left;
+  margin: 18px 0;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+}
+
+/* ================= ÜBER MICH 4 ================= */
+.about-wrapper4 {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 2000px;
+  margin: 0 auto;
+  margin-top: -10rem;
+  padding: 4rem 2rem;
+  gap: 2rem;
+}
+
+.about-text4 {
+  max-width: 600px;
+  color: #948671;
+  text-align: left;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.4;
+  margin-left: 5rem;
+  padding-top: 150px;
+  font-family: "Cormorant Garamond", serif;
+}
+
+.about-wrapper4 img.about-img4 {
+  width: 500px;
+  height: auto;
+  object-fit: cover;
+  margin-right: -2rem;
+  z-index: 1;
+  border-radius: 10px;
+}
+
+.about-text4 p {
+  margin: 40px 0;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+}
+
+/* ================ Portfolio ================ */
+.portfolio-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 2000px;
+  margin: 0 auto;
+  margin-top: 0.5rem;
+  margin-bottom: 4rem;
+  padding: 4rem 2rem;
+  gap: 2rem;
+}
+
+.portfolio-sign {
+  width: 12%;
+  height: auto;
+  object-fit: cover;
+  margin-left: 0.5rem;
+}
+
+.portfolio-display {
+  display: flex;
+  align-items: center;
+}
+
+.portfolio-image-container {
+  overflow: hidden;
+  position: relative;
+}
+
+.portfolio-img {
+  width: 80%;
+  height: auto;
+  margin-left: 0.5rem;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  position: relative;
+}
+
+.portfolio-info {
+  flex: 1;
+  gap: 0;
+  text-align: left;
+}
+
+.portfolio-name {
+  font-size: 45px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  letter-spacing: 0.5px;
+  font-family: "Cormorant Garamond", serif;
+}
+
+.portfolio-caption {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  line-height: -1.2;
+  font-family: "Cormorant Garamond", serif;
+}
+
+.portfolio-date {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0px;
+  margin-bottom: 80px;
+  font-family: "Cormorant Garamond", serif;
+}
+
+.portfolio-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.portfolio-btn {
+  background: none;
+  border: none;
+  font-size: 14px;
+  font-family: "Cormorant Garamond", serif;
+  letter-spacing: 2px;
+  cursor: pointer;
+  opacity: .8;
+  transition: 0.2s ease;
+  padding: 0 1px;
+}
+
+.portfolio-btn:first-child::after {
+  content: "/";
+  font-size: 30px;
+  font-family: "Cormorant Garamond", serif;
+  margin: 0 20px;
+  display: inline-block;
+  line-height: 1;
+  vertical-align: middle;
+  transform: translateY(2px);
+}
+
+.portfolio-img,
+.portfolio-name,
+.portfolio-caption,
+.portfolio-date {
+  transition: .45s ease;
+}
+
+/* ================= KONTAKTFORMULAR ================= */
+.contact-section {
+  text-align: center;
+  color: #554e45;
+  padding: 4rem 2rem;
+  margin-bottom: 3rem;
+  font-family: "Cormorant Garamond", serif;
+}
+
+.contact-section h3 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  letter-spacing: 1.5px;
+}
+
+.contact-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  line-height: 1.4;
+  font-weight: 700;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #000000;
+  border-radius: 0;
+  font-size: 1rem;
+  color: #000000;
+  background-color: #fff;
+  transition: border-color 0.3s;
+  font-weight: 700;
+  font-family: "Cormorant Garamond", serif;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #746958;
+  outline: none;
+}
+
+.contact-form textarea {
+  resize: none;
+}
+
+.contact-form button {
+  background-color: #3f3e3e;
+  color: #fff;
+  border: none;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-left: -43rem;
+  font-family: "Cormorant Garamond", serif;
+}
+
+.contact-form button:hover {
+  background-color: #202020;
+}
+
+/* ================= Feebdack ================= */
+.feedback-sign {
+  text-align: center;
+  color: #000000;
+  padding: 4rem 2rem;
+  margin-bottom: 2rem;
+}
+
+.feedback-sign img {
+  max-width: 260px;
+  width: 100%;
+  height: auto;
+  margin-bottom: 2rem;
+}
+
+.insta-text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+#insta-container img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+#insta-container img:hover {
+  transform: scale(1.05);
+}
+
+.feedback-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.feedback-item.fade-out {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+.feedback-item {
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  padding: 1.5rem;
+  font-style: italic;
+  font-size: 1.25rem;
+  line-height: 1.4;
+  font-weight: 700;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  list-style: none;
+  font-family: "Cormorant Garamond", serif;
+}
+
+.feedback-item .feedback-text {
+  max-width: 500px;
+  word-wrap: break-word;
+  margin-bottom: 0.5rem;
+}
+
+.feedback-item .feedback-name {
+  font-weight: 700;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.feedback-item .feedback-date {
+  font-weight: 500;
+  margin-top: -1rem;
+  color: #000000;
+  margin-bottom: 6rem;
+}
+
+/* ================ Instagram =============== */
+.instagram-sign {
+  text-align: center;
+  color: #000000;
+  padding: 4rem 2rem;
+  margin-bottom: 2rem;
+}
+
+.instagram-sign img {
+  max-width: 260px;
+  width: 100%;
+  height: auto;
+  margin-bottom: 2rem;
+}
+
+.instagram-text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* ================= FOOTER ================= */
+.footer-custom {
+  background-color: #8f8f85;
+  color: #ffffff;
+  padding: 3rem 2rem;
+  font-weight: 700;
+  line-height: 1.4;
+  font-family: "Cormorant Garamond", serif;
+  margin-bottom: -2rem;
+}
+
+
+.footer-custom h3,
+.footer-custom h4 {
+  margin-bottom: 0.5rem;
+}
+
+.footer-custom h3 span {
+  font-weight: 400;
+}
+
+.footer-custom p,
+.footer-custom ul li {
+  margin: 0.2rem 0;
+  font-size: 1rem;
+}
+
+.footer-custom a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.footer-custom a:hover {
+  text-decoration: underline;
+}
+
+.footer-custom .footer-logo {
+  max-width: 120px;
+}
+
+.footer-custom .footer-social a {
+  margin: 0 0.3rem;
+  font-size: 1rem;
+}
+
+.footer-custom hr {
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.footer-bottom p {
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+/* ================= SCROLLBAR AUSBLENDEN ================= */
+html,
+body {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* ================= RESPONSIVE MEDIA QUERIES ================= */
+@media (max-width: 992px) {
+  .about-wrapper {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+
+  .about-img {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .carousel-inner img {
+    aspect-ratio: 3 / 4;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-overlay h1 {
+    font-size: 2rem;
+  }
+
+  .hero-overlay p {
+    font-size: 1rem;
+  }
+
+  .gallery-img,
+  .carousel-inner img {
+    aspect-ratio: 3 / 4;
+  }
+
+  .footer-custom {
+    padding: 40px 1rem;
+  }
+
+  .about-wrapper2,
+  .about-wrapper4 {
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem;
+  }
+
+  .about-text2,
+  .about-text4 {
+    text-align: center;
+    margin: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    height: 90vh;
+  }
+
+  .hero-logo {
+    top: 10px;
+    left: 15px;
+  }
+
+  .hero-logo img {
+    width: 130px;
+  }
+
+  .hero-overlay {
+    width: 90%;
+    padding: 0 1rem;
+  }
+
+  .hero-overlay h1 {
+    font-size: 1.6rem;
+  }
+
+  .hero-overlay p {
+    font-size: 1rem;
+    line-height: 1.3;
+  }
+
+  .about-wrapper,
+  .about-wrapper2,
+  .about-wrapper3,
+  .about-wrapper4 {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+
+  .about-img,
+  .about-wrapper2 img.about-img,
+  .about-wrapper3 img.about-img,
+  .about-wrapper4 img.about-img4 {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    margin: 1rem 0;
+  }
+
+  #insta-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  #insta-container img {
+    width: 140px;
+    height: 140px;
+  }
+
+  .feedback-item {
+    font-size: 0.9rem;
+  }
+
+  .footer-custom {
+    padding: 2rem 1rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .hero-overlay h1 {
+    font-size: 1.3rem;
+  }
+
+  .hero-overlay p {
+    font-size: 0.85rem;
+  }
+
+  .about-text p,
+  .about-text2 p,
+  .about-text3 p,
+  .about-text4 p {
+    font-size: 0.9rem;
+    line-height: 1.3;
+  }
+
+  .hero-logo img {
+    width: 120px;
+  }
+
+  #insta-container img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .gallery-img,
+  .carousel-inner img {
+    aspect-ratio: 2 / 3;
+  }
+}
+
+@media (max-width: 900px) {
+  .portfolio-display {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .portfolio-info {
+    text-align: center;
+  }
+
+  .portfolio-buttons {
+    justify-content: center;
+  }
+
+  .portfolio-buttons::before {
+    margin-right: 10px;
+  }
+}
