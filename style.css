@@ -11,8 +11,17 @@ body {
   overflow-x: hidden;
 }
 
-.genau-text { 
-  white-space: pre-line; 
+/* ================= CUSTOM FONT ================= */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  src: url('assets/fonts/cormorant-garamond-regular.woff2') format('woff2'),
+    url('assets/fonts/cormorant-garamond-regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.genau-text {
+  white-space: pre-line;
 }
 
 /* ================= BODY ================= */
@@ -56,6 +65,13 @@ body {
   transition: padding 0.3s ease;
 }
 
+.navbar-toggler {
+  position: relative;
+  /* wichtig für z-index */
+  z-index: 1003;
+  /* höher als Overlay und Menü-Links */
+}
+
 .logo-img {
   height: 35px;
   width: 250px;
@@ -77,6 +93,58 @@ body {
 .navbar-toggler-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
+
+/* Navbar Collapse geöffnet: Hintergrund halbtransparent */
+/* Overlay rechts */
+.navbar-collapse::before {
+  content: "";
+  position: fixed;        
+  top: 0;
+  right: 0;
+  width: 350px;           
+  height: 100vh;          
+  background-color: rgba(255,255,255,0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  pointer-events: none;   
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+/* Overlay sichtbar, wenn Menü offen */
+.navbar-collapse.show::before {
+  opacity: 1;
+}
+
+/* Menü-Links - Start (geschlossen) */
+.navbar-collapse .navbar-nav {
+  position: relative;
+  z-index: 1002;
+  text-align: right;
+  margin-right: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;                /* Abstand enger */
+  transform: translateX(100%); /* aus dem Bildschirm rechts */
+  opacity: 0;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+/* Menü offen */
+.navbar-collapse.show .navbar-nav {
+  transform: translateX(0);   /* reinfahren */
+  opacity: 1;
+}
+
+/* Burger-Button immer oben */
+.navbar-toggler {
+  position: relative;
+  z-index: 1003;
+}
+
+
+
 
 /* ================= HERO ================= */
 .hero {
@@ -114,26 +182,78 @@ body {
   animation: slideshow 76s infinite;
 }
 
-.hero-slideshow img:nth-child(1) { animation-delay: 0s; }
-.hero-slideshow img:nth-child(2) { animation-delay: 6s; }
-.hero-slideshow img:nth-child(3) { animation-delay: 12s; }
-.hero-slideshow img:nth-child(4) { animation-delay: 18s; }
-.hero-slideshow img:nth-child(5) { animation-delay: 24s; }
-.hero-slideshow img:nth-child(6) { animation-delay: 30s; }
-.hero-slideshow img:nth-child(7) { animation-delay: 36s; }
-.hero-slideshow img:nth-child(8) { animation-delay: 42s; }
-.hero-slideshow img:nth-child(9) { animation-delay: 48s; }
-.hero-slideshow img:nth-child(10) { animation-delay: 54s; }
-.hero-slideshow img:nth-child(11) { animation-delay: 60s; }
-.hero-slideshow img:nth-child(12) { animation-delay: 66s; }
-.hero-slideshow img:nth-child(13) { animation-delay: 72s; }
+.hero-slideshow img:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.hero-slideshow img:nth-child(2) {
+  animation-delay: 6s;
+}
+
+.hero-slideshow img:nth-child(3) {
+  animation-delay: 12s;
+}
+
+.hero-slideshow img:nth-child(4) {
+  animation-delay: 18s;
+}
+
+.hero-slideshow img:nth-child(5) {
+  animation-delay: 24s;
+}
+
+.hero-slideshow img:nth-child(6) {
+  animation-delay: 30s;
+}
+
+.hero-slideshow img:nth-child(7) {
+  animation-delay: 36s;
+}
+
+.hero-slideshow img:nth-child(8) {
+  animation-delay: 42s;
+}
+
+.hero-slideshow img:nth-child(9) {
+  animation-delay: 48s;
+}
+
+.hero-slideshow img:nth-child(10) {
+  animation-delay: 54s;
+}
+
+.hero-slideshow img:nth-child(11) {
+  animation-delay: 60s;
+}
+
+.hero-slideshow img:nth-child(12) {
+  animation-delay: 66s;
+}
+
+.hero-slideshow img:nth-child(13) {
+  animation-delay: 72s;
+}
 
 @keyframes slideshow {
-  0% { opacity: 0; }
-  5% { opacity: 1; }
-  25% { opacity: 1; }
-  30% { opacity: 0; }
-  100% { opacity: 0; }
+  0% {
+    opacity: 0;
+  }
+
+  5% {
+    opacity: 1;
+  }
+
+  25% {
+    opacity: 1;
+  }
+
+  30% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
 }
 
 .hero-overlay {
@@ -147,19 +267,22 @@ body {
   max-width: 90%;
 }
 
+.hero-overlay h1,
+.hero-overlay p {
+  font-family: "Cormorant Garamond", serif;
+}
+
 .hero-overlay h1 {
   font-size: 2rem;
   line-height: 1.2;
   letter-spacing: 2px;
   margin-bottom: 1rem;
-  font-family: "Cormorant Garamond", serif;
 }
 
 .hero-overlay p {
   font-size: 1.4rem;
   font-weight: 550;
   line-height: 1;
-  font-family: "Cormorant Garamond", serif;
 }
 
 /* ================= ÜBER MICH ================= */
@@ -194,34 +317,13 @@ body {
 
 .about-text {
   max-width: 800px;
-}
-
-.about-text h2 {
-  font-size: 2.2rem;
-  margin-bottom: 0.5rem;
-  text-align: center;
-  color: #746958;
-  letter-spacing: 2px;
   font-family: "Cormorant Garamond", serif;
 }
 
-.about-text h3 {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-  text-align: center;
-  color: #948671;
-  letter-spacing: 2px;
-  font-family: "Cormorant Garamond", serif;
-}
-
+.about-text h2,
+.about-text h3,
 .about-text p {
-  font-size: 1.5rem;
-  line-height: 1;
-  text-align: center;
-  color: #948671;
-  margin: 0.3rem;
   font-family: "Cormorant Garamond", serif;
-  font-weight: 600;
 }
 
 /* ================= ÜBER MICH 2 ================= */
@@ -384,6 +486,7 @@ body {
   position: relative;
 }
 
+/* Right text block */
 .portfolio-info {
   flex: 1;
   gap: 0;
@@ -391,11 +494,12 @@ body {
 }
 
 .portfolio-name {
+  text-align: flex;
   font-size: 45px;
   font-weight: 700;
   margin-bottom: 20px;
   letter-spacing: 0.5px;
-  font-family: "Cormorant Garamond", serif;
+  margin-right: -1rem;
 }
 
 .portfolio-caption {
@@ -404,17 +508,16 @@ body {
   letter-spacing: 1px;
   margin-bottom: 10px;
   line-height: -1.2;
-  font-family: "Cormorant Garamond", serif;
 }
 
 .portfolio-date {
   font-size: 18px;
   font-weight: 700;
-  letter-spacing: 0px;
+  letter-spacing: 1px;
   margin-bottom: 80px;
-  font-family: "Cormorant Garamond", serif;
 }
 
+/* Center slash divider */
 .portfolio-buttons {
   display: flex;
   align-items: center;
@@ -430,6 +533,7 @@ body {
   opacity: .8;
   transition: 0.2s ease;
   padding: 0 1px;
+  /* symmetrischer Abstand */
 }
 
 .portfolio-btn:first-child::after {
@@ -439,10 +543,18 @@ body {
   margin: 0 20px;
   display: inline-block;
   line-height: 1;
+  /* gleiche Höhe wie Buttons */
   vertical-align: middle;
+  /* vertikal zentrieren */
   transform: translateY(2px);
+  /* Feintuning */
 }
 
+.portfolio-buttons::after {
+  content: "";
+}
+
+/*Animation der Bilder sowie Text*/
 .portfolio-img,
 .portfolio-name,
 .portfolio-caption,
@@ -456,7 +568,6 @@ body {
   color: #554e45;
   padding: 4rem 2rem;
   margin-bottom: 3rem;
-  font-family: "Cormorant Garamond", serif;
 }
 
 .contact-section h3 {
@@ -493,7 +604,6 @@ body {
   background-color: #fff;
   transition: border-color 0.3s;
   font-weight: 700;
-  font-family: "Cormorant Garamond", serif;
 }
 
 .contact-form input:focus,
@@ -516,11 +626,32 @@ body {
   cursor: pointer;
   transition: background-color 0.3s;
   margin-left: -43rem;
-  font-family: "Cormorant Garamond", serif;
 }
 
 .contact-form button:hover {
   background-color: #202020;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 0.95rem;
+    padding: 0.6rem 0.8rem;
+  }
+
+  .contact-form button {
+    width: 100%;
+  }
+
+  .contact-section h3 {
+    font-size: 1.6rem;
+  }
+
+  .contact-subtitle {
+    font-size: 1rem;
+  }
 }
 
 /* ================= Feebdack ================= */
@@ -533,6 +664,7 @@ body {
 
 .feedback-sign img {
   max-width: 260px;
+  /* etwas kleiner */
   width: 100%;
   height: auto;
   margin-bottom: 2rem;
@@ -567,11 +699,15 @@ body {
 
 .feedback-item {
   min-height: 150px;
+  /* Höhe des Containers */
   display: flex;
   flex-direction: column;
   justify-content: center;
+  /* vertikal zentriert */
   align-items: center;
+  /* gesamter Block horizontal zentriert */
   text-align: left;
+  /* Text innerhalb linksbündig */
   padding: 1.5rem;
   font-style: italic;
   font-size: 1.25rem;
@@ -581,17 +717,18 @@ body {
   transform: translateY(20px);
   transition: opacity 0.8s ease, transform 0.8s ease;
   list-style: none;
-  font-family: "Cormorant Garamond", serif;
 }
 
 .feedback-item .feedback-text {
   max-width: 500px;
+  /* Zeilenbreite begrenzen */
   word-wrap: break-word;
   margin-bottom: 0.5rem;
 }
 
 .feedback-item .feedback-name {
   font-weight: 700;
+  /* Name fett */
   display: block;
   margin-bottom: 0.25rem;
 }
@@ -601,6 +738,21 @@ body {
   margin-top: -1rem;
   color: #000000;
   margin-bottom: 6rem;
+  /* optional grauer Ton */
+}
+
+/* Responsive Anpassung */
+@media (max-width: 768px) {
+  .feedback-item .feedback-text {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .feedback-item .feedback-text {
+    max-width: 95%;
+    font-size: 1rem;
+  }
 }
 
 /* ================ Instagram =============== */
@@ -613,6 +765,7 @@ body {
 
 .instagram-sign img {
   max-width: 260px;
+  /* etwas kleiner */
   width: 100%;
   height: auto;
   margin-bottom: 2rem;
@@ -626,14 +779,12 @@ body {
 /* ================= FOOTER ================= */
 .footer-custom {
   background-color: #8f8f85;
+  /* Farbe wie im Screenshot */
   color: #ffffff;
   padding: 3rem 2rem;
   font-weight: 700;
   line-height: 1.4;
-  font-family: "Cormorant Garamond", serif;
-  margin-bottom: -2rem;
 }
-
 
 .footer-custom h3,
 .footer-custom h4 {
@@ -689,7 +840,8 @@ body::-webkit-scrollbar {
   display: none;
 }
 
-/* ================= RESPONSIVE MEDIA QUERIES ================= */
+/* ========================================================= 📱 RESPONSIVE MEDIA QUERIES – OPTIMIERT FÜR SMARTPHONES ========================================================= */
+/* Tablet bis Desktop */
 @media (max-width: 992px) {
   .about-wrapper {
     flex-direction: column;
@@ -707,6 +859,7 @@ body::-webkit-scrollbar {
   }
 }
 
+/* Kleine Tablets / Smartphones */
 @media (max-width: 768px) {
   .hero-overlay h1 {
     font-size: 2rem;
@@ -739,6 +892,7 @@ body::-webkit-scrollbar {
   }
 }
 
+/* Smartphones */
 @media (max-width: 600px) {
   .hero {
     height: 90vh;
@@ -787,6 +941,11 @@ body::-webkit-scrollbar {
     margin: 1rem 0;
   }
 
+  .about-text p {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
   #insta-container {
     display: flex;
     flex-wrap: wrap;
@@ -808,6 +967,7 @@ body::-webkit-scrollbar {
   }
 }
 
+/* Sehr kleine Smartphones */
 @media (max-width: 400px) {
   .hero-overlay h1 {
     font-size: 1.3rem;
